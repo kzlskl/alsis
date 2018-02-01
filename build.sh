@@ -7,6 +7,7 @@ sleep 3
 echo -n "Username:"
 read name
 useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash $name
+passwd $name
 
 echo $name ALL=(ALL) ALL >> /etc/sudoers
 echo [archlinuxfr] >> /etc/pacman.conf
