@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'Wellcome to HERAKLES'
+echo 'WELLCOME TO HERAKLES'
 echo 'Arch Linux Basic Builder Script for Personel Purposes (Lenovo x200)'
 
 pacman -Syyu
