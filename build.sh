@@ -1,9 +1,6 @@
 #!/bin/bash
-
-echo "Arch Linux Basic Installer Script for Personel Purposes (Lenovo x200)"
-
-mkfs.ext4 /dev/sda1
-mkswap /dev/sda2
+echo 'Wellcome to HERAKLES'
+echo 'Arch Linux Basic Builder Script for Personel Purposes (Lenovo x200)'
 
 pacman -Syyu
 pacman -S - < programs.both
