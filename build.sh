@@ -9,10 +9,10 @@ read name
 useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash $name
 passwd $name
 
-echo $name ALL=(ALL) ALL >> /etc/sudoers
+echo '$name ALL=(ALL) ALL' >> /etc/sudoers
 echo [archlinuxfr] >> /etc/pacman.conf
 echo SigLevel = Never >> /etc/pacman.conf
-echo Server = http://repo.archlinux.fr/$arch >> /etc/pacman.conf
+echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 echo [multilib] >> /etc/pacman.conf
 echo Include = /etc/pacman.d/mirrorlist >> /etc/pacman.conf
 
