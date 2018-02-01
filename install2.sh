@@ -12,7 +12,7 @@ echo KEYMAP=trq >> /etc/vconsole.conf
 echo FONT=iso09.16 >> /etc/vconsole.conf
 echo LANG=tr_TR.UTF-8 >> /etc/locale.conf
 echo Europe/Istanbul >> /etc/timezone
-echo tr_tr.UTF-8 UTF-8 >> /etc/locale.gen
+echo tr_TR.UTF-8 UTF-8 >> /etc/locale.gen
 echo tr_TR ISO-8859-9 >> /etc/locale.gen
 locale-gen
 
