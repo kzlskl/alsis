@@ -36,8 +36,7 @@ print-manager
 foomatic-db
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
-arc-gtk-theme
-numix-gtk-theme
+adapta-gtk-theme
 pulseaudio
 pulseaudio-equalizer
 audacity
