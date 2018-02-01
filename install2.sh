@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'WELCOME TO HERAKLES'
+echo 'WELLCOME TO HERAKLES'
 echo 'Arch Linux Basic Installer Script for Personel Purposes (Lenovo x200)'
 sleep 3
 echo herakles > /etc/hostname
@@ -23,7 +23,7 @@ grub-install --recheck /dev/sda
 passwd root
 
 echo 'DONE! Computer will reboot. After reboot please run "build.sh"'
-sleep 5
+sleep 3
 exit
 umount /mnt
 reboot

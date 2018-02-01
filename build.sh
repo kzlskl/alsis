@@ -1,6 +1,8 @@
 #!/bin/bash
+
 echo 'WELLCOME TO HERAKLES'
 echo 'Arch Linux Basic Builder Script for Personel Purposes (Lenovo x200)'
+sleep 3
 
 pacman -Syyu
 pacman -S - < programs.both

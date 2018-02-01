@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo 'WELLCOME TO HERAKLES'
 echo 'Arch Linux Basic Installer Script for Personel Purposes (Lenovo x200)'
 
