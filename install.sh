@@ -5,6 +5,7 @@ echo 'Arch Linux Basic Installer Script for Personel Purposes (Lenovo x200)'
 
 echo 'Disk bölümlerini sda1=ext4 sda2=swap için bölümlendirmediyseniz ctrl+c ile betiği durdurun.'
 sleep 6
+
 mkfs.ext4 /dev/sda1
 mkswap /dev/sda2
 
