@@ -31,6 +31,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
+touch /etc/X11/xorg.conf.d/20-keyboard.conf
 echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
 
 echo 'DONE!'

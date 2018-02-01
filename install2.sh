@@ -20,9 +20,6 @@ grub-install --recheck /dev/sda
 
 passwd root
 
-echo 'DONE! Computer will reboot. After reboot please run "build.sh"'
+echo 'DONE! umount /mnt and reboot. After reboot please run "build.sh"'
 sleep 2
-
 exit
-umount /mnt
-reboot
