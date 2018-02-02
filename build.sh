@@ -25,7 +25,7 @@ echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes
 
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
-echo -e '\ncd /herakles-master \nchmod +x post-build.sh \n./post-build.sh' >> /home/$name/.bashrc
+echo -e '\ncd /herakles-master \nsudo chmod +x post-build.sh \n./post-build.sh' >> /home/$name/.bashrc
 
 echo -e 'DONE! \nAfter reboot, login your accont and open terminal, follow the script. You have just one chance for use this script. \nAfter use or ignore, script will remove all HERAKLES files.'
 sleep 1
