@@ -18,7 +18,7 @@ if echo "$answer" | grep -iq "^y" ;then
 
     sed -i 's\cd /herakles-master\\g' /home/$LOGNAME/.bashrc
     sed -i 's\./post-build.sh\\g' /home/$LOGNAME/.bashrc
-    sed -i 's\chmod +x post-build.sh\\g' /home/$LOGNAME/.bashrc
+    sed -i 's\sudo chmod +x post-build.sh\\g' /home/$LOGNAME/.bashrc
     sudo rm -rf /herakles-master /qwqumC /root/herakles-master /root/qwqumC
 
 else
