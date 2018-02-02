@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo 'WELLCOME TO HERAKLES'
-echo 'Arch Linux Simple Installer Scripts for Personel Use (Lenovo x200)'
+echo -e '\nWELLCOME TO HERAKLES'
+echo -e '\nArch Linux Simple Installer Scripts for Personel Use (Lenovo x200)'
 sleep 2
 
 echo -n "hostname:"

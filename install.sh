@@ -1,9 +1,8 @@
 #!/bin/bash
 
-echo 'WELLCOME TO HERAKLES'
-echo 'Arch Linux Simple Installer Scripts for Personel Use (Lenovo x200)'
-
-echo 'If you did not create partitions as sda1=ext4 sda2=swap, stop script with CTRL+C and create partition.'
+echo -e '\nWELLCOME TO HERAKLES'
+echo -e '\nArch Linux Simple Installer Scripts for Personel Use (Lenovo x200)'
+echo -e '\nIf you did not create partitions as sda1=ext4 sda2=swap, stop script with CTRL+C and create partition.'
 sleep 6
 
 mkfs.ext4 /dev/sda1
