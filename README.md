@@ -4,7 +4,7 @@
 
 - Script will set system for Turkish, will install xfce4.
 
-- If you want to use it, you better look into scripts and Guide.
+- If you want to use it, you better look into scripts and `Guide`.
 
 - Scripts may not work, i'm just trying to learn how to do.
 
