@@ -1,5 +1,4 @@
-linux-lts
-linux-lts-headers
+linux-headers
 xorg-server
 xorg-xinit
 mesa
@@ -56,8 +55,8 @@ tlp
 tlp-rdw
 smartmontools
 ethtool
-tp_smapi-lts
-acpi_call-lts
+tp_smapi
+acpi_call
 blueman
 yaourt
 cheese
