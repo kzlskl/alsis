@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'WELLCOME TO HERAKLES'
-echo 'Arch Linux Basic Builder Script for Personel Purposes (Lenovo x200)'
+echo 'Arch Linux Simple Installer Scripts for Personel Use (Lenovo x200)'
 sleep 3
 
 echo -n "Username:"
@@ -20,8 +20,8 @@ mkdir /home/$name/Genel
 
 echo "$name ALL=(ALL) ALL" >> /etc/sudoers
 
-echo -e '[archlinuxfr] \nSigLevel = Never \nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 echo -e '\n[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+echo -e '\n[archlinuxfr] \nSigLevel = Never \nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
 pacman -Syyu
 pacman -S - < programs.both

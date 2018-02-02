@@ -1,9 +1,12 @@
 #!/bin/bash
 
 echo 'WELLCOME TO HERAKLES'
-echo 'Arch Linux Basic Installer Script for Personel Purposes (Lenovo x200)'
+echo 'Arch Linux Simple Installer Scripts for Personel Use (Lenovo x200)'
 sleep 2
-echo herakles > /etc/hostname
+
+echo -n "hostname:"
+read hostname
+echo $hostname > /etc/hostname
 
 pacman -S networkmanager
 systemctl enable NetworkManager.service
