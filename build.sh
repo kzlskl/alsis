@@ -21,7 +21,7 @@ mkdir /home/$name/Genel
 echo "$name ALL=(ALL) ALL" >> /etc/sudoers
 
 echo -e '[archlinuxfr] \nSigLevel = Never \nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
-echo -e '[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+echo -e '\n[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 
 pacman -Syyu
 pacman -S - < programs.both
@@ -33,6 +33,8 @@ systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 touch /etc/X11/xorg.conf.d/20-keyboard.conf
 echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
+
+sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
 echo 'DONE!'
 sleep 1

@@ -22,4 +22,5 @@ passwd root
 
 echo 'DONE! umount /mnt and reboot. After reboot please run "build.sh"'
 sleep 2
+exit 0
 exit
