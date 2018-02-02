@@ -4,7 +4,6 @@ echo -e '\nWELLCOME TO HERAKLES'
 echo -e '\nArch Linux Simple Installer Script for Personel Use (Lenovo x200)'
 
 mkdir /home/$LOGNAME/Belgeler
-mkdir /home/$LOGNAME/Masaüstü
 mkdir /home/$LOGNAME/Resimler
 mkdir /home/$LOGNAME/Videolar
 mkdir /home/$LOGNAME/Müzikler
