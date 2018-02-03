@@ -14,18 +14,12 @@ echo "$name ALL=(ALL) ALL" >> /etc/sudoers
 echo -e '\n[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 echo -e '\n[archlinuxfr] \nSigLevel = Never \nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
-pacman -Syyu
-pacman -S - < programs.both
-
-systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
-systemctl mask systemd-rfkill.service systemd-rfkill.socket
-
 touch /etc/X11/xorg.conf.d/20-keyboard.conf
 echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
 
 sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
-echo -e '\ncd /herakles-master \nsudo chmod +x post-build.sh \n./post-build.sh' >> /home/$name/.bashrc
+#echo -e '\ncd /herakles-master \nsudo chmod +x post-build.sh \n./post-build.sh' >> /home/$name/.bashrc
 
-echo -e 'DONE! \nAfter reboot, login your accont and open terminal, follow the script. You have just one chance for use this script. \nAfter use or ignore, script will remove all HERAKLES files.'
+echo -e 'DONE! \nAfter reboot, login your accont and run ./post-build.sh. \nAfter using script will remove all ALSIS files.'
 sleep 1

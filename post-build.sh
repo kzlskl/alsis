@@ -3,6 +3,12 @@
 echo -e '\nWELLCOME TO HERAKLES'
 echo -e '\nArch Linux Simple Installer Script for Personel Use (Lenovo x200)'
 
+sudo pacman -Syyu
+sudo pacman -S - < programs.both
+
+sudo systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
+sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
 mkdir /home/$LOGNAME/Belgeler
 mkdir /home/$LOGNAME/Resimler
 mkdir /home/$LOGNAME/Videolar
@@ -10,20 +16,8 @@ mkdir /home/$LOGNAME/Müzikler
 mkdir /home/$LOGNAME/İndirilenler
 mkdir /home/$LOGNAME/Genel
 
-echo -e -n "\nDO you want to run post-build script? (y/n)"
-read answer
-if echo "$answer" | grep -iq "^y" ;then
-    yaourt -S engrampa-thunar pamac-aur paper-icon-theme-git telegram-desktop-bin spotify mugshot
-    mugshot
+yaourt -S engrampa-thunar paper-icon-theme-git telegram-desktop-bin spotify mugshot
 
-    sed -i 's\cd /herakles-master\\g' /home/$LOGNAME/.bashrc
-    sed -i 's\./post-build.sh\\g' /home/$LOGNAME/.bashrc
-    sed -i 's\sudo chmod +x post-build.sh\\g' /home/$LOGNAME/.bashrc
-    sudo rm -rf /herakles-master /qwqumC /root/herakles-master /root/qwqumC
-
-else
-    sudo rm -rf /herakles-master /qwqumC /root/herakles-master /root/qwqumC
-
-fi
+sudo rm -rf /herakles-master /qwqumC /root/herakles-master /root/qwqumC
 
 echo 'Welldone! ALSIS is completed!'
