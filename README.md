@@ -1,8 +1,8 @@
-### HERAKLES
-# by kzlskl
+# HERAKLES
+#### by kzlskl
 
 ## ALSIS v0.2.4a
-# (Arch Linux Simple Installer Scripts)
+#### (Arch Linux Simple Installer Scripts)
 
 - Made for personel use.
 
