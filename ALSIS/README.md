@@ -1,4 +1,8 @@
-### HERAKLES v0.2.3
+### HERAKLES
+#by kzlskl
+
+##ALSIS v0.2.4a
+#(Arch Linux Simple Installer Scripts)
 
 - Made for personel use.
 
@@ -12,4 +16,6 @@
 
 - Thank you for understanding.
 
-- Short link for downloading scripts `wget goo.gl/qwqumC` , for extracting scripts `bsdtar -xf qwqumC`
+- Short link for downloading scripts `[new link will be added soon]` , for extracting scripts `bsdtar -xf [new file name will be added soon]`
+
+- Herakles Project's blog: https://kzlskl.github.io/blog/

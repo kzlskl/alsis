@@ -1,10 +1,4 @@
 linux-headers
-xorg-server
-xorg-xinit
-mesa
-alsa-lib
-alsa-utils
-gamin
 xfce4
 xfce4-goodies
 vlc

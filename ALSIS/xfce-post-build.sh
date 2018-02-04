@@ -1,10 +1,13 @@
 #!/bin/bash
 
-echo -e '\nWELLCOME TO HERAKLES'
-echo -e '\nArch Linux Simple Installer Script for Personel Use (Lenovo x200)'
+echo -e '\nWELLCOME TO ALSIS'
+echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
+sleep 2
 
 sudo pacman -Syyu
-sudo pacman -S - < programs.both
+sudo pacman -S - < xfce-programs.both
+
+sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
 sudo systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
@@ -18,6 +21,7 @@ mkdir /home/$LOGNAME/Genel
 
 yaourt -S engrampa-thunar paper-icon-theme-git telegram-desktop-bin spotify mugshot
 
-sudo rm -rf /herakles-master /qwqumC /root/herakles-master /root/qwqumC
+sudo rm -rf /root/herakles-master /root/qwqumC
 
+clear
 echo 'Welldone! ALSIS is completed!'
