@@ -10,3 +10,6 @@ intel-ucode
 xf86-video-intel
 yaourt
 i3
+firefox
+firefox-i18n-tr
+dmenu
