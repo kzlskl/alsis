@@ -97,11 +97,15 @@ by kzlskl
         
     pacman -S yaourt
     
-#Packages
+#Packages for xfce4
 
     pacman -S xfce4 xfce4-goodies vlc audacious firefox firefox-i18n-tr thunderbird thunderbird-i18n-tr pavucontrol blueberry network-manager-applet ntfs-3g engrampa unrar unzip zip p7zip exfat-utils lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings light-locker cups cups-pdf system-config-printer print-manager foomatic-db foomatic-db-nonfree-ppds foomatic-db-ppds pulseaudio pulseaudio-equalizer audacity gtk-recordmydesktop pitivi soundconverter gnome-disk-utility seahorse redshift evince gimp inkscape liferea transmission-gtk pidgin libreoffice-still libreoffice-still-tr gparted dconf-editor shotwell thunar-archive-plugin gvfs intel-ucode xf86-video-intel adapta-gtk-theme
     
     yaourt -S engrampa-thunar telegram-desktop-bin spotify pamac-aur paper-icon-theme-git
+
+#Packages for i3
+
+    Coming soon...
     
 #Activating lightdm
     
