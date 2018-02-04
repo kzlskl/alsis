@@ -3,7 +3,7 @@
 
 - Made for personel use.
 
-- Script will set system for Turkish, will install xfce4.
+- Script will set system for Turkish.
 
 - If you want to use it, you better look into scripts and `Guide`.
 
