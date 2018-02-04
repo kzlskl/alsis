@@ -13,6 +13,6 @@
 
 - Thank you for understanding.
 
-- Short link for downloading scripts `[new link will be added soon]` , for extracting scripts `bsdtar -xf [new file name will be added soon]`
+- Short link for downloading scripts `https://goo.gl/VQgcge` , for extracting scripts `bsdtar -xf VQgcge`
 
 - Herakles Project's blog: https://kzlskl.github.io/blog/
