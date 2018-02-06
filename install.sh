@@ -14,7 +14,7 @@ swapon /dev/sda2
 pacstrap -i /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab
 
-cd /
-cp -R /alsis-master /mnt
+
+cp -R ~/alsis-master /mntW
 
 arch-chroot /mnt
