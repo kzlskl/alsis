@@ -21,7 +21,7 @@ mkdir /home/$LOGNAME/Genel
 
 yaourt -S engrampa-thunar paper-icon-theme-git telegram-desktop-bin spotify mugshot
 
-sudo rm -rf /root/alsis-master /root/XfFpPK
+sudo rm -rf /alsis-master
 
 clear
 echo 'Welldone! ALSIS is completed!'
