@@ -2,14 +2,21 @@
 
 echo -e '\nWELLCOME TO ALSIS'
 echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
-echo -e '\nIf you did not create partitions as sda1=ext4 sda2=swap, stop script with CTRL+C and create partition.'
-sleep 6
+sleep 2
 
-mkfs.ext4 /dev/sda1
-mkswap /dev/sda2
+cfdisk
 
-mount /dev/sda1 /mnt
-swapon /dev/sda2
+echo -n "root partition (sda1, sda2, etc.):"
+read rootpart
+
+echo -n "swap partition:"
+read swappart
+
+mkfs.ext4 /dev/$rootpart
+mkswap /dev/$swappart
+
+mount /dev/$rootpart /mnt
+swapon /dev/$swappart
 
 pacstrap -i /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab

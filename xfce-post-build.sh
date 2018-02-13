@@ -7,10 +7,10 @@ sleep 2
 sudo pacman -Syyu
 sudo pacman -S - < xfce-programs.both
 
-sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
-
 sudo systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+sudo sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
 mkdir /home/$LOGNAME/Belgeler
 mkdir /home/$LOGNAME/Resimler

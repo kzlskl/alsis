@@ -20,6 +20,7 @@ mkdir /home/$LOGNAME/Genel
 touch /home/$LOGNAME/.xinitrc
 echo -e 'exec i3' >> /home/$LOGNAME/.xinitrc
 
+mkdir ~/.config/termite
 cp /etc/xdg/termite/config ~/.config/termite/config
 
 sudo rm -rf /root/alsis-master /root/XfFpPK
