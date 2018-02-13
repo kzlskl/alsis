@@ -1,3 +1,5 @@
+#Base, Utils, Tools
+
 linux-headers
 ntfs-3g
 unrar
@@ -8,5 +10,29 @@ exfat-utils
 gvfs
 intel-ucode
 xf86-video-intel
+
+#Programs
+
 yaourt
 i3
+firefox
+firefox-i18n-tr
+dmenu
+nitrogen
+termite
+udiskie
+
+#Fonts
+
+ttf-bitstream-vera
+ttf-croscore
+ttf-dejavu
+ttf-droid
+ttf-roboto
+noto-fonts
+ttf-liberation
+ttf-ubuntu-font-family
+ttf-anonymous-pro
+ttf-freefont
+ttf-hack
+ttf-inconsolata

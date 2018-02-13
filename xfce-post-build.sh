@@ -7,10 +7,10 @@ sleep 2
 sudo pacman -Syyu
 sudo pacman -S - < xfce-programs.both
 
-sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
-
 sudo systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+sudo sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
 mkdir /home/$LOGNAME/Belgeler
 mkdir /home/$LOGNAME/Resimler
@@ -21,7 +21,8 @@ mkdir /home/$LOGNAME/Genel
 
 yaourt -S engrampa-thunar paper-icon-theme-git telegram-desktop-bin spotify mugshot
 
-sudo rm -rf /root/herakles-master /root/qwqumC
+sudo rm -rf /root/alsis-master /root/XfFpPK
 
 clear
 echo 'Welldone! ALSIS is completed!'
+sleep 2

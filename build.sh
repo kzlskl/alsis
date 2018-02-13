@@ -4,6 +4,7 @@ echo -e '\nWELLCOME TO ALSIS'
 echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
 sleep 2
 
+nmtui
 pacman -S xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
 
 echo -n "Username:"
