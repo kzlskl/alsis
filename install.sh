@@ -6,7 +6,7 @@ sleep 2
 
 cfdisk
 
-echo -n "root partition (sda1, sda2, etc.):"
+echo -n "root partition (sda1, sda2 etc.):"
 read rootpart
 
 echo -n "swap partition:"

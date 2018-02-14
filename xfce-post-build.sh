@@ -12,6 +12,8 @@ sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 sudo sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
 
+echo -e '[greeter]\ntheme-name = Adapta-Eta\nicon-name-theme = paper\background = /usr/share/backgrounds/xfce/ondasblue.jpg\nhide-user-image = true' > /etc/lightdm/lightdm-gtk-greeter.conf
+
 mkdir /home/$LOGNAME/Belgeler
 mkdir /home/$LOGNAME/Resimler
 mkdir /home/$LOGNAME/Videolar
