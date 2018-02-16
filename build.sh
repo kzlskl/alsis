@@ -5,6 +5,10 @@ echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
 sleep 2
 
 nmtui
+
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
+
 pacman -S xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
 
 echo -n "Username:"

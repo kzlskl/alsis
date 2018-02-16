@@ -6,7 +6,7 @@ sleep 2
 
 cfdisk
 
-echo -n "root partition (sda1, sda2, etc.):"
+echo -n "root partition (sda1, sda2 etc.):"
 read rootpart
 
 echo -n "swap partition:"
@@ -18,10 +18,13 @@ mkswap /dev/$swappart
 mount /dev/$rootpart /mnt
 swapon /dev/$swappart
 
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
+
 pacstrap -i /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab
 
 
-cp -R ~/alsis-master /mnt
+cp -r ~/alsis-devel /mnt
 
 arch-chroot /mnt

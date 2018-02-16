@@ -7,10 +7,14 @@ sleep 2
 sudo pacman -Syyu
 sudo pacman -S - < xfce-programs.both
 
-sudo systemctl enable lightdm.service tlp.service tlp-sleep.service NetworkManager-dispatcher.service
+sudo systemctl enable lightdm.service
+
+sudo systemctl enable tlp.service tlp-sleep.service NetworkManager-dispatcher.service
 sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 sudo sed -i 's/#greeter-hide-users=false/greeter-hide-users=true/g' /etc/lightdm/lightdm.conf
+
+sudo echo -e '[greeter]\ntheme-name = Adapta-Eta\nicon-name-theme = paper\background = /usr/share/backgrounds/xfce/ondasblue.jpg\nhide-user-image = true' > /etc/lightdm/lightdm-gtk-greeter.conf
 
 mkdir /home/$LOGNAME/Belgeler
 mkdir /home/$LOGNAME/Resimler
@@ -19,9 +23,11 @@ mkdir /home/$LOGNAME/Müzikler
 mkdir /home/$LOGNAME/İndirilenler
 mkdir /home/$LOGNAME/Genel
 
-yaourt -S engrampa-thunar paper-icon-theme-git telegram-desktop-bin spotify mugshot
+yaourt -S engrampa-thunar paper-icon-theme-git mugshot
+
 
 sudo rm -rf /alsis-master
+
 
 clear
 echo 'Welldone! ALSIS is completed!'

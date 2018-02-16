@@ -18,6 +18,9 @@ sed -i 's/#tr_TR.UTF-8 UTF-8/tr_TR.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/#tr_TR ISO-8859-9/tr_TR ISO-8859-9/g' /etc/locale.gen
 locale-gen
 
+timedatectl set-ntp true
+timedatectl set-timezone Europe/Istanbul
+
 mkinitcpio -p linux
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --recheck /dev/sda
