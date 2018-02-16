@@ -21,7 +21,7 @@ mkdir /home/$LOGNAME/Müzikler
 mkdir /home/$LOGNAME/İndirilenler
 mkdir /home/$LOGNAME/Genel
 
-yaourt -S engrampa-thunar paper-icon-theme-git telegram-desktop-bin spotify mugshot
+yaourt -S engrampa-thunar paper-icon-theme-git mugshot
 
 sudo rm -rf /alsis-master 
 
