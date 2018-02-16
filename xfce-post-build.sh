@@ -25,7 +25,9 @@ mkdir /home/$LOGNAME/Genel
 
 yaourt -S engrampa-thunar paper-icon-theme-git mugshot
 
-sudo rm -rf /alsis-devel 
+
+sudo rm -rf /alsis-master
+
 
 clear
 echo 'Welldone! ALSIS is completed!'
