@@ -25,6 +25,6 @@ pacstrap -i /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab
 
 
-cp -r ~/alsis-master /mnt
+cp -r ~/alsis-devel /mnt
 
 arch-chroot /mnt
