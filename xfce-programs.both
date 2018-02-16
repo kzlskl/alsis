@@ -41,10 +41,7 @@ libreoffice-still
 libreoffice-still-tr
 gparted
 dconf-editor
-thunar-archive-plugin
 gvfs
-#intel-ucode
-#xf86-video-intel
 tlp
 tlp-rdw
 smartmontools
