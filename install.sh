@@ -18,6 +18,9 @@ mkswap /dev/$swappart
 mount /dev/$rootpart /mnt
 swapon /dev/$swappart
 
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
+
 pacstrap -i /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab
 
