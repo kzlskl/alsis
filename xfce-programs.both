@@ -43,8 +43,8 @@ gparted
 dconf-editor
 thunar-archive-plugin
 gvfs
-intel-ucode
-xf86-video-intel
+#intel-ucode
+#xf86-video-intel
 tlp
 tlp-rdw
 smartmontools
