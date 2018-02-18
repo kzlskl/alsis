@@ -24,5 +24,8 @@ echo -e '\n[archlinuxfr] \nSigLevel = Never \nServer = http://repo.archlinux.fr/
 touch /etc/X11/xorg.conf.d/20-keyboard.conf
 echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
 
+timedatectl set-ntp true
+timedatectl set-timezone Europe/Istanbul
+
 clear
 echo -e 'DONE! \nAfter reboot, login your accont and run ./xfce-post-build.sh. \nAfter using script will remove all ALSIS files.'
