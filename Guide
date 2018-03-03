@@ -1,6 +1,6 @@
 Arch Linux Installation and XFCE Build Guide
 
-In this guide  you can see my installation steps. 
+In this guide  you can see my installation steps.
 
 by kzlskl
 
@@ -30,7 +30,7 @@ by kzlskl
 #Create a hostname. Script will ask for it.
 
     echo herakles > /etc/hostname
-    
+
     pacman -S networkmanager
     systemctl enable NetworkManager.service
 
@@ -39,13 +39,13 @@ by kzlskl
     nano /etc/vconsole.conf
         KEYMAP=trq
         FONT=iso09.16
-    
+
     nano /etc/locale.conf
         LANG=tr_TR.UTF-8
-        
+
     nano /etc/timezone
         Europe/Istanbul
-        
+
 #Edit locale.gen file and remove # symbol in the relevant section with your language.
 
     nano /etc/locale.gen
@@ -57,7 +57,7 @@ by kzlskl
         .
         .
         .
-    
+
     locale-gen
 
 #Compiling linux core. Making grub configuration file and installing grub at /dev/sda. You may want to edit this part.It is depending on your needs
@@ -65,19 +65,19 @@ by kzlskl
     mkinitcpio -p linux
     grub-mkconfig -o /boot/grub/grub.cfg
     grub-install --recheck /dev/sda
-    
+
 #Creating password for "root".
     passwd root
-    
+
     exit
     umount /mnt
     reboot
-    
+
     --------------------------
-    
+
     pacman -Syyu
     pacman -S xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin dbus
-    
+
 #Creating a new user.
 
     useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash yourusername
@@ -85,77 +85,77 @@ by kzlskl
 #Adding new created user to sudoers file. Just write this lines to bottom. You may don't want to do this. Please google it.
 
     nano /etc/sudoers
-        
+
         yourusername ALL=(ALL) ALL
-        
+
 #Adding aur repos. Just write this lines to bottom. Activating Multilib repos.
-    
+
     nano /etc/pacman.conf
         [archlinuxfr]
         SigLevel = Never
         Server = http://repo.archlinux.fr/$arch
-        
+
     pacman -S yaourt
-    
+
 #Packages for xfce4
 
     pacman -S xfce4 xfce4-goodies vlc audacious firefox firefox-i18n-tr thunderbird thunderbird-i18n-tr pavucontrol blueberry network-manager-applet ntfs-3g engrampa unrar unzip zip p7zip exfat-utils lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings light-locker cups cups-pdf system-config-printer print-manager foomatic-db foomatic-db-nonfree-ppds foomatic-db-ppds pulseaudio pulseaudio-equalizer audacity gtk-recordmydesktop pitivi soundconverter gnome-disk-utility seahorse redshift evince gimp inkscape liferea transmission-gtk pidgin libreoffice-still libreoffice-still-tr gparted dconf-editor shotwell thunar-archive-plugin gvfs intel-ucode xf86-video-intel adapta-gtk-theme
-    
+
     yaourt -S engrampa-thunar telegram-desktop-bin spotify pamac-aur paper-icon-theme-git
 
 #Packages for i3
 
     Coming soon...
-    
+
 #Activating lightdm
-    
+
     sudo systemctl enable lightdm.service
 
 ###Fix for lightdm-gtk-greeter turkish keyboard problem. If you don't want turkish keyboard settings, you have to edit this part depending on your needs.
 
     sudo nano /etc/X11/xorg.conf.d/20-keyboard.conf
-    
+
         Section "InputClass"
             Identifier "keyboard"
             MatchIsKeyboard "yes"
             Option "XkbLayout" "tr"
         EndSection
-        
+
 ###whisker'a meta tuşunu kısayol olarak eklemek için kullanılacak.
 
     xfce4-popup-whiskermenu
-    
+
 ###Pil iyileştirmesi için TLP kurulumu
 
     sudo pacman -S tlp tlp-rdw smartmontools ethtool
 
 (for thinkpads)
-    sudo pacman -S tp_smapi acpi_call 
+    sudo pacman -S tp_smapi acpi_call
 
     sudo systemctl enable tlp.service
     sudo systemctl enable tlp-sleep.service
     sudo systemctl enable NetworkManager-dispatcher.service
     sudo systemctl mask systemd-rfkill.service
     sudo systemctl mask systemd-rfkill.socket
-    
+
 ###lightdm'de kullanıcı adını saklamak
 
     sudo nano /etc/lightdm/lightdm.conf
-    
-        [Seat:*] başlığı altındaki "greeter-hide-users" bölümünü bul. Başındaki #'i kaldır ve sonundaki false'u true olarak değiştir. 
-    
+
+        [Seat:*] başlığı altındaki "greeter-hide-users" bölümünü bul. Başındaki #'i kaldır ve sonundaki false'u true olarak değiştir.
+
 ###Mugshot kurulumu
 
     sudo pacman -S cheese
     yaourt -S mugshot
 
 ###gufw kurulumu
-    
+
     sudo pacman -S gufw
     sudo systemctl enable ufw.service
-    
-    
-    
+
+
+
 ###Grafiksel ayarlamalar.
 
     Pencere Yöneticisi -> Stil: adapta, sansbold 9
@@ -168,17 +168,17 @@ by kzlskl
     lightdm :   theme adapta-etc
                 icons paper
                 font sans regular 10
-                
+
     whisker menü özellikler > komutlar >
         kullanıcı değiştirme    :   gdmflexiserver
         uygulamaları düzenle    :   menulibre
         profil düzenle          :   mugshot
-        
+
         Panel Butonu >  Görüntü  :   Simge
                         Başlık   :   Uygulamalar
                         Arch linux paper simgesi
-                        
-    
+
+
 ###Dropbox sorunu çözümü: Programı kurduktan sonra ilk açılışta alttaki komutu yürüt.
 
     LC_ALL=C dropbox start -i
@@ -190,7 +190,7 @@ by kzlskl
 
 ###Linux-lts'ye geçiş
 
-    sudo pacman -S linux-lts linux-lts-headers 
+    sudo pacman -S linux-lts linux-lts-headers
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 (tlp kullanıyorsanız tp_smapi ve acpi_call paketlerini tp_smapi-lts ve acpi_call-lts paketleriyle değiştirmeniz gerekli.)
@@ -200,7 +200,7 @@ by kzlskl
 
 sudo pacman -S virtualbox-guest-utils virtualbox-guest-modules-arch
 
-###Short links for downloading scripts easyly
-    wget goo.gl/qwqumC
-    bsdtar -xf qwqumC
+###Time setting
 
+timedatectl set-ntp true
+timedatectl set-timezone Europe/Istanbul

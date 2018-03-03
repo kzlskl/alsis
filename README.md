@@ -13,6 +13,4 @@
 
 - Thank you for understanding.
 
-- Short link for downloading scripts `https://goo.gl/XfFpPK` , for extracting scripts `bsdtar -xf XfFpPK`
-
 - Herakles Project's blog: https://kzlskl.github.io/blog/
