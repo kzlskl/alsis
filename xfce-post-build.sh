@@ -21,6 +21,8 @@ echo -e '[greeter]\ntheme-name = Adapta-Eta\nicon-name-theme = paper\background 
 sudo rm -rf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo cp /home/$LOGNAME/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 
+rm -rf ~/lightdm-gtk-greeter.conf
+
 mkdir /home/$LOGNAME/Belgeler
 mkdir /home/$LOGNAME/Resimler
 mkdir /home/$LOGNAME/Videolar
