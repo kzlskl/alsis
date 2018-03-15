@@ -27,7 +27,7 @@ genfstab -L -p /mnt >> /mnt/etc/fstab
 
 cp -r ~/alsis-devel /mnt
 
-arch-chroot /mnt && {
+cat << EOF | chroot /mnt
 
   echo -n "hostname:"
   read hostname
@@ -49,4 +49,4 @@ arch-chroot /mnt && {
 
   passwd root
 
-}
+EOF
