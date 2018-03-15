@@ -3,6 +3,8 @@
 echo -e '\nWELLCOME TO ALSIS'
 echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
 sleep 2
+echo -e '\nIf you did not change the script, you have to create home, root, boot and swap partition.'
+sleep 4
 
 cfdisk
 
