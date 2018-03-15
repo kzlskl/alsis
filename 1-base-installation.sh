@@ -20,6 +20,12 @@ read homepart
 echo -n "swap partition (sda1, sda2 etc.):"
 read swappart
 
+echo -n "Hostname:"
+read hostname
+
+echo -n "Username:"
+read name
+
 mkfs.ext4 /dev/$rootpart
 mkfs.ext4 /dev/$homepart
 mkfs.ext4 /dev/$bootpart
@@ -36,13 +42,8 @@ echo -e '\nThis may take 10 minutes...'
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
 
-pacstrap -i /mnt base base-devel grub
+pacstrap /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab
-
-echo -n "hostname:"
-read hostname
-echo -n "Username:"
-read name
 
 cat << EOF | arch-chroot /mnt
   echo $hostname > /etc/hostname
@@ -73,3 +74,5 @@ cat << EOF | arch-chroot /mnt
 
   passwd -R /mnt $name
   passwd -R /mnt root
+
+  echo -e '\nDone!'
