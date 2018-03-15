@@ -70,9 +70,9 @@ cat << EOF | arch-chroot /mnt
 
   timedatectl set-ntp true
   timedatectl set-timezone Europe/Istanbul
-  EOF
+EOF
 
-  passwd -R /mnt $name
-  passwd -R /mnt root
+passwd -R /mnt $name
+passwd -R /mnt root
 
-  echo -e '\nDone!'
+echo -e '\nDone!'
