@@ -1,4 +1,4 @@
-## ALSIS v0.2.4b
+## ALSIS v0.3.0
 #### (Arch Linux Simple Installer Scripts)
 
 - Made for personel use.
