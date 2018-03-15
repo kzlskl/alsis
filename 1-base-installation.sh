@@ -6,16 +6,26 @@ sleep 2
 
 cfdisk
 
+echo -n "boot partition (sda1, sda2 etc.):"
+read bootpart
+
 echo -n "root partition (sda1, sda2 etc.):"
 read rootpart
 
-echo -n "swap partition:"
+echo -n "home partition (sda1, sda2 etc.):"
+read homepart
+
+echo -n "swap partition (sda1, sda2 etc.):"
 read swappart
 
 mkfs.ext4 /dev/$rootpart
+mkfs.ext4 /dev/$homepart
+mkfs.ext4 /dev/$bootpart
 mkswap /dev/$swappart
 
 mount /dev/$rootpart /mnt
+mount /dev/$homepart /mnt/home
+mount /dev/$bootpart /mnt/boot
 swapon /dev/$swappart
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
@@ -31,7 +41,7 @@ read name
 
 cat << EOF | arch-chroot /mnt
   echo $hostname > /etc/hostname
-  yes | pacman -S networkmanager xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
+  pacman -Syy --noconfirm networkmanager xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
   systemctl enable NetworkManager.service
   echo -e "KEYMAP=trq \nFONT=iso09.16" >> /etc/vconsole.conf
   echo 'LANG=tr_TR.UTF-8' >> /etc/locale.conf
