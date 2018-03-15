@@ -27,4 +27,26 @@ genfstab -L -p /mnt >> /mnt/etc/fstab
 
 cp -r ~/alsis-devel /mnt
 
-arch-chroot /mnt
+arch-chroot /mnt && {
+
+  echo -n "hostname:"
+  read hostname
+  echo $hostname > /etc/hostname
+
+  pacman -S networkmanager
+  systemctl enable NetworkManager.service
+
+  echo -e "KEYMAP=trq \nFONT=iso09.16" >> /etc/vconsole.conf
+
+  echo 'LANG=tr_TR.UTF-8' >> /etc/locale.conf
+  sed -i 's/#tr_TR.UTF-8 UTF-8/tr_TR.UTF-8 UTF-8/g' /etc/locale.gen
+  sed -i 's/#tr_TR ISO-8859-9/tr_TR ISO-8859-9/g' /etc/locale.gen
+  locale-gen
+
+  mkinitcpio -p linux
+  grub-mkconfig -o /boot/grub/grub.cfg
+  grub-install --recheck /dev/sda
+
+  passwd root
+
+}
