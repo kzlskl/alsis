@@ -32,23 +32,9 @@ mount /dev/$homepart /mnt/home
 mount /dev/$bootpart /mnt/boot
 swapon /dev/$swappart
 
+echo -e '\nThis may take 10 minutes...'
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist &
-spinner()
-{
-    local pid=$!
-    local delay=0.75
-    local spinstr='...'
-    echo "This may take 10 minutes "
-    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf "%s  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b"
-    done
-    printf "    \b\b\b\b"
-}
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
 
 pacstrap -i /mnt base base-devel grub
 genfstab -L -p /mnt >> /mnt/etc/fstab
