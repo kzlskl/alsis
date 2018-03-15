@@ -28,12 +28,10 @@ echo -n "hostname:"
 read hostname
 echo -n "Username:"
 read name
-passwd -R /mnt $name
-passwd -R /mnt root
 
 cat << EOF | arch-chroot /mnt
   echo $hostname > /etc/hostname
-  pacman -S networkmanager
+  yes | pacman -S networkmanager xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
   systemctl enable NetworkManager.service
   echo -e "KEYMAP=trq \nFONT=iso09.16" >> /etc/vconsole.conf
   echo 'LANG=tr_TR.UTF-8' >> /etc/locale.conf
@@ -43,8 +41,6 @@ cat << EOF | arch-chroot /mnt
   mkinitcpio -p linux
   grub-mkconfig -o /boot/grub/grub.cfg
   grub-install --recheck /dev/sda
-
-  pacman -S xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
 
   useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash $name
 
@@ -59,3 +55,6 @@ cat << EOF | arch-chroot /mnt
   timedatectl set-ntp true
   timedatectl set-timezone Europe/Istanbul
   EOF
+
+  passwd -R /mnt $name
+  passwd -R /mnt root
