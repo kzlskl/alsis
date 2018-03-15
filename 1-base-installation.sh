@@ -24,6 +24,8 @@ mkfs.ext4 /dev/$bootpart
 mkswap /dev/$swappart
 
 mount /dev/$rootpart /mnt
+mkdir /mnt/home
+mkdir /mnt/boot
 mount /dev/$homepart /mnt/home
 mount /dev/$bootpart /mnt/boot
 swapon /dev/$swappart
