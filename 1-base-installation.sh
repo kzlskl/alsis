@@ -68,11 +68,15 @@ cat << EOF | arch-chroot /mnt
   touch /etc/X11/xorg.conf.d/20-keyboard.conf
   echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
 
-  timedatectl set-ntp true
-  timedatectl set-timezone Europe/Istanbul
 EOF
 
+arch-chroot /mnt timedatectl set-ntp true
+arch-chroot /mnt timedatectl set-timezone Europe/Istanbul
+
+cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
+
 passwd -R /mnt $name
+
 passwd -R /mnt root
 
 echo -e '\nDone!'
