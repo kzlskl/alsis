@@ -70,13 +70,10 @@ cat << EOF | arch-chroot /mnt
 
 EOF
 
-arch-chroot /mnt timedatectl set-ntp true
-arch-chroot /mnt timedatectl set-timezone Europe/Istanbul
-
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
-passwd -R /mnt $name
-
 passwd -R /mnt root
+
+passwd -R /mnt $name
 
 echo -e '\nDone!'

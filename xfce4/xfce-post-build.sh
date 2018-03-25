@@ -4,6 +4,12 @@ echo -e '\nWELLCOME TO ALSIS'
 echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
 sleep 2
 
+git clone https://aur.archlinux.org/trizen-git.git
+cd trizen-git
+makepkg -si
+
+cd ~
+
 sudo pacman -Syyu
 sudo pacman -S - < xfce-programs.both
 
@@ -30,12 +36,12 @@ mkdir /home/$LOGNAME/Müzikler
 mkdir /home/$LOGNAME/İndirilenler
 mkdir /home/$LOGNAME/Genel
 
-yaourt -S engrampa-thunar paper-icon-theme-git mugshot
+trizen -S engrampa-thunar paper-icon-theme-git mugshot
 
+sudo timedatectl set-ntp true
+sudo timedatectl set-timezone Europe/Istanbul
 
-sudo rm -rf /alsis-devel
+sudo rm -rf ~/alsis-devel ~/DxD14f ~/trizen-git
 
-
-clear
 echo 'Welldone! ALSIS is completed!'
 sleep 2
