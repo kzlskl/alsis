@@ -4,12 +4,6 @@ echo -e '\nWELLCOME TO ALSIS'
 echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
 sleep 2
 
-git clone https://aur.archlinux.org/trizen-git.git
-cd trizen-git
-makepkg -si
-
-cd ~
-
 sudo pacman -Syyu
 sudo pacman -S - < xfce-programs.both
 
@@ -35,6 +29,10 @@ mkdir /home/$LOGNAME/Videolar
 mkdir /home/$LOGNAME/Müzikler
 mkdir /home/$LOGNAME/İndirilenler
 mkdir /home/$LOGNAME/Genel
+
+git clone https://aur.archlinux.org/trizen-git.git
+cd ~/trizen-git
+makepkg -si
 
 trizen -S engrampa-thunar paper-icon-theme-git mugshot
 

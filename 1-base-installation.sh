@@ -73,7 +73,6 @@ EOF
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 passwd -R /mnt root
-
 passwd -R /mnt $name
 
 echo -e '\nDone!'
