@@ -30,6 +30,7 @@ mkdir /home/$LOGNAME/Müzikler
 mkdir /home/$LOGNAME/İndirilenler
 mkdir /home/$LOGNAME/Genel
 
+cd ~
 git clone https://aur.archlinux.org/trizen-git.git
 cd ~/trizen-git
 makepkg -si

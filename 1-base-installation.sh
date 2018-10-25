@@ -38,6 +38,7 @@ mount /dev/$homepart /mnt/home
 mount /dev/$bootpart /mnt/boot
 swapon /dev/$swappart
 
+pacman -S pacman-contrib
 echo -e '\nThis may take 10 minutes...'
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
