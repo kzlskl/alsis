@@ -56,24 +56,24 @@ cat << EOF | arch-chroot /mnt
   sed -i 's/#tr_TR ISO-8859-9/tr_TR ISO-8859-9/g' /etc/locale.gen
   locale-gen
   mkinitcpio -p linux
-  grub-mkconfig -o /boot/grub/grub.cfg
-  grub-install --recheck /dev/sda
 
   useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash $name
 
   echo "$name ALL=(ALL) ALL" >> /etc/sudoers
 
   echo -e '\n[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
-  echo -e '\n[archlinuxfr] \nSigLevel = Never \nServer = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
 
   touch /etc/X11/xorg.conf.d/20-keyboard.conf
   echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
 
 EOF
 
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt grub-install --recheck /dev/sda
+
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
-passwd -R /mnt root
-passwd -R /mnt $name
+echo "$2" | passwd -R /mnt "root" --stdin
+echo "$3" | passwd -R /mnt "$name" --stdin
 
 echo -e '\nDone!'
