@@ -3,19 +3,19 @@
 echo -e '\nWELLCOME TO ALSIS'
 echo -e '\nArch Linux Simple Installer Scripts for Personel Use'
 sleep 2
-echo -e '\nIf you did not change the script, you have to create home, root, boot and swap partition.'
-sleep 4
+#echo -e '\nIf you did not change the script, you have to create home, root, boot and swap partition.'
+#sleep 4
 
 cfdisk
 
-echo -n "boot partition (sda1, sda2 etc.):"
-read bootpart
+#echo -n "boot partition (sda1, sda2 etc.):"
+#read bootpart
 
 echo -n "root partition (sda1, sda2 etc.):"
 read rootpart
 
-echo -n "home partition (sda1, sda2 etc.):"
-read homepart
+#echo -n "home partition (sda1, sda2 etc.):"
+#read homepart
 
 echo -n "swap partition (sda1, sda2 etc.):"
 read swappart
@@ -27,18 +27,18 @@ echo -n "Username:"
 read name
 
 mkfs.ext4 /dev/$rootpart
-mkfs.ext4 /dev/$homepart
-mkfs.ext4 /dev/$bootpart
+#mkfs.ext4 /dev/$homepart
+#mkfs.ext4 /dev/$bootpart
 mkswap /dev/$swappart
 
 mount /dev/$rootpart /mnt
-mkdir /mnt/home
-mkdir /mnt/boot
-mount /dev/$homepart /mnt/home
-mount /dev/$bootpart /mnt/boot
+#mkdir /mnt/home
+#mkdir /mnt/boot
+#mount /dev/$homepart /mnt/home
+#mount /dev/$bootpart /mnt/boot
 swapon /dev/$swappart
 
-pacman -S pacman-contrib
+pacman -Sy pacman-contrib
 echo -e '\nThis may take 10 minutes...'
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
