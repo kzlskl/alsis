@@ -25,12 +25,14 @@ read hostname
 
 echo -n "Root Password:"
 read -s rpass
+echo \n
 
 echo -n "Username:"
 read name
 
 echo -n "User Password:"
 read -s pass
+echo \n
 
 mkfs.ext4 /dev/$rootpart
 #mkfs.ext4 /dev/$homepart
