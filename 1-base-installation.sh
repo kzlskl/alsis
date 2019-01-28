@@ -23,8 +23,14 @@ read swappart
 echo -n "Hostname:"
 read hostname
 
+echo -n "Root Password:"
+read rpass
+
 echo -n "Username:"
 read name
+
+echo -n "User Password:"
+read pass
 
 mkfs.ext4 /dev/$rootpart
 #mkfs.ext4 /dev/$homepart
@@ -68,12 +74,13 @@ cat << EOF | arch-chroot /mnt
 
 EOF
 
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt grub-install --recheck /dev/sda
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
-echo "$2" | passwd -R /mnt "root" --stdin
-echo "$3" | passwd -R /mnt "$name" --stdin
+echo root:$rpass | chpasswd -R /mnt
+
+echo $name:$pass | chpasswd -R /mnt
 
 echo -e '\nDone!'
