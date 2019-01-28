@@ -24,13 +24,13 @@ echo -n "Hostname:"
 read hostname
 
 echo -n "Root Password:"
-read rpass
+read -s rpass
 
 echo -n "Username:"
 read name
 
 echo -n "User Password:"
-read pass
+read -s pass
 
 mkfs.ext4 /dev/$rootpart
 #mkfs.ext4 /dev/$homepart
@@ -62,20 +62,14 @@ cat << EOF | arch-chroot /mnt
   sed -i 's/#tr_TR ISO-8859-9/tr_TR ISO-8859-9/g' /etc/locale.gen
   locale-gen
   mkinitcpio -p linux
-
+  grub-install --recheck /dev/sda
+  grub-mkconfig -o /boot/grub/grub.cfg
   useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash $name
-
   echo "$name ALL=(ALL) ALL" >> /etc/sudoers
-
   echo -e '\n[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
-
   touch /etc/X11/xorg.conf.d/20-keyboard.conf
   echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
-
 EOF
-
-arch-chroot /mnt grub-install --recheck /dev/sda
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
