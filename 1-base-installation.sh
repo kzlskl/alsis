@@ -46,7 +46,7 @@ mount /dev/$rootpart /mnt
 #mount /dev/$bootpart /mnt/boot
 swapon /dev/$swappart
 
-pacman -Sy pacman-contrib
+pacman -Sy --noconfirm pacman-contrib
 echo -e '\nThis may take 10 minutes...'
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist
@@ -58,7 +58,7 @@ cat << EOF | arch-chroot /mnt
   echo $hostname > /etc/hostname
   pacman -Syy --noconfirm networkmanager xorg-server xorg-xinit mesa alsa-lib alsa-utils gamin
   systemctl enable NetworkManager.service
-  echo -e "KEYMAP=trq \nFONT=iso09.16" >> /etc/vconsole.conf
+  echo -e "KEYMAP=trq" >> /etc/vconsole.conf
   echo 'LANG=tr_TR.UTF-8' >> /etc/locale.conf
   sed -i 's/#tr_TR.UTF-8 UTF-8/tr_TR.UTF-8 UTF-8/g' /etc/locale.gen
   sed -i 's/#tr_TR ISO-8859-9/tr_TR ISO-8859-9/g' /etc/locale.gen
