@@ -69,8 +69,6 @@ cat << EOF | arch-chroot /mnt
   useradd -m -g users -G optical,storage,wheel,video,audio,users,power,network,log -s /bin/bash $name
   echo "$name ALL=(ALL) ALL" >> /etc/sudoers
   echo -e '\n[multilib] \nInclude = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
-  touch /etc/X11/xorg.conf.d/20-keyboard.conf
-  echo -e 'Section "InputClass" \n\tIdentifier "keyboard" \n\tMatchIsKeyboard "yes" \n\tOption "XkbLayout" "tr" \nEndSection' >> /etc/X11/xorg.conf.d/20-keyboard.conf
 EOF
 
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
